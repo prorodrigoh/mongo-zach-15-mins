@@ -32,7 +32,7 @@ export const getTvShows = async () => {
 export const getShowsByPlatform = async (platformId: ObjectId) => {
   const col = await getCollection();
   const ret = col.find({
-    platformId,
+    platformIds: { $all: [platformId] },
   });
   return ret.toArray();
 };

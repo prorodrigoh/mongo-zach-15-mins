@@ -1,11 +1,11 @@
-import mongodb from 'mongodb';
-import dotenv from 'dotenv';
+import { MongoClient } from 'mongodb';
+import { config } from 'dotenv';
 
-dotenv.config();
+config();
 
 export const getDb = async () => {
-  const client = new mongodb.MongoClient(process.env.MONGO_URL);
+  const client = new MongoClient(process.env.MONGO_URL!);
   await client.connect();
 
-  return client.db('zachs-db');
+  return client.db('typescript-db');
 };
