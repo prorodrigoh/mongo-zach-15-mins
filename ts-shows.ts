@@ -4,7 +4,9 @@ import { getDb } from './db';
 // typescript here
 interface TvShows {
   name: string;
-  platformIds: ObjectId[];  // Array of strings
+  platformIds: string[];  // Array of strings
+  genre: string;
+  maturityRating: 'G'|'PG'|'PG-13'|'PG-15'|'NC-17'|'M'|'R'
 }
 
 const getCollection = async () => {
